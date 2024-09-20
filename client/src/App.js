@@ -1,12 +1,23 @@
 import './App.css';
-import NavBar from './Components/Navigation_Bar';
+import HomePage from './Pages/HomePage';
+import NavBar from './Pages/Components/Navigation_Bar';
 import { Routes, Route } from 'react-router-dom';
+import ProjectPage from './Pages/ProjectPage';
+import ContactPage from './Pages/ContactPage';
+import AboutPage from './Pages/AboutPage';
 
 function App() {
   return (
-  <Routes>
-    <Route index element={<NavBar />} />
-  </Routes>
+    <div>
+      <NavBar/>
+      <Routes>
+        <Route index element={<HomePage />} />
+        <Route path='Projects' element={<ProjectPage />} />
+        <Route path='About' element={<AboutPage />} />
+        <Route path='Contact' element={<ContactPage />} />
+      </Routes>
+    </div>
+
   );
 }
 
