@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import ProjectPage from './Pages/ProjectPage';
 import ContactPage from './Pages/ContactPage';
 import AboutPage from './Pages/AboutPage';
+import ToolBar from './Pages/Components/Tool_Bar';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='About' element={<AboutPage />} />
         <Route path='Contact' element={<ContactPage />} />
       </Routes>
+      <ToolBar />
     </div>
 
   );

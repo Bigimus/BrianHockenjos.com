@@ -82,7 +82,7 @@ export const NavBar = ({ }) => {
 
     return (
             <Box sx={{ height: 125, width: 1 }}>
-                <AppBar position="static" sx={{ bgcolor: '#eb4634', height: 1, justifyContent: 'center'}}>
+                <AppBar position="fixed" sx={{ bgcolor: '#eb4634', height: 1/8, justifyContent: 'center'}}>
                     <Toolbar>
                         <IconButton
                             edge="start"

@@ -83,7 +83,7 @@ const ProjectPage = () => {
 
   return (
     <div>
-        <Stack direction='row'>
+        <Stack direction='row' sx={{ mb: 7.5}}>
             <Stack sx={{width: 1/2, mt: 5}}>
             {odd_projects.map((project) => (
                 <ProjectCard 
