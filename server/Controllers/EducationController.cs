@@ -6,7 +6,7 @@ namespace server.Controllers {
     [Route("api/[controller]")]
     public class EducationController : ControllerBase {
         [HttpGet]
-        public ActionResult<List<Education>> GetEducation()
+        public ActionResult<List<Education>> GetDegrees()
         {
             var degrees = new List<Education>
             {

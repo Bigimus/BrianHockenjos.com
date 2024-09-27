@@ -9,7 +9,7 @@ namespace server.Controllers {
     public class ProjectsController : ControllerBase {
 
         [HttpGet]
-        public ActionResult<List<Project>> GetProducts()
+        public ActionResult<List<Project>> GetProjects()
         {
             // Create a list of products
             var products = new List<Project>

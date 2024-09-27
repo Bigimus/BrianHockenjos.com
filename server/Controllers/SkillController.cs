@@ -8,7 +8,7 @@ namespace server.Controllers {
     [Route("api/[controller]")]
     public class SkillsController : ControllerBase {
         [HttpGet]
-        public ActionResult<List<Skill>> GetProducts()
+        public ActionResult<List<Skill>> GetSkills()
         {
             // Create a list of products
             var Skills = new List<Skill>
