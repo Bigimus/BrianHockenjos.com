@@ -1,26 +1,17 @@
 import { Card, CardActions, CardContent, Button, Typography, Stack, Divider, Link } from '@mui/material'
 import React from 'react'
+import { useEffect, useState } from 'react';
 
 const dividerStyles = { mb: 1.25 }
 
 const EducationCard = ({ }) => {
-
-    const degrees = [
-        {
-            SCHOOL: 'Stanford H. Calhoun High School',
-            LOCATION: 'Merrick, New York',
-            DEGREE: 'Advanced Regents Diploma',
-            TIMEFRAME: 'Sep 2014 - Jun 2018',
-            LINK: 'https://www.bellmore-merrick.k12.ny.us/schools/sanford_h_calhoun_high_school'
-        },
-        {
-            SCHOOL: 'New York Institute of Technology',
-            LOCATION: 'Old Westbury, New York',
-            DEGREE: 'Electrical and Computer Engineering B.S',
-            TIMEFRAME: 'Sep 2018 - May 2022',
-            LINK: 'https://www.nyit.edu/'
-        }
-    ]
+    const [degrees, setDegrees] = useState([]);
+    useEffect(() => {
+      fetch("/api/education")
+        .then((response) => response.json())
+        .then((data) => setDegrees(data))
+        .catch((error) => console.error("Error fetching products:", error));
+    }, []);
 
     const EducationEntry = ({ mb, link, school, location, degree, timeframe }) => {
         return (
@@ -36,19 +27,19 @@ const EducationCard = ({ }) => {
             </Stack>
         )
     }
-
     return (
-        <Card raised='true' sx={{ width: 1 / 2 }}>
+        <Card raised sx={{ width: 1 / 2 }}>
             <CardContent>
                 <Typography children={'Education'} fontSize={'48px'} align='center' />
                 <Divider sx={dividerStyles} />
                 {degrees.map((degree) => (
                     <EducationEntry
-                        school={degree.SCHOOL}
-                        location={degree.LOCATION}
-                        degree={degree.DEGREE}
-                        timeframe={degree.TIMEFRAME}
-                        link={degree.LINK}
+                        key={degree.id}
+                        school={degree.school}
+                        location={degree.location}
+                        degree={degree.degree}
+                        timeframe={degree.timeframe}
+                        link={degree.link}
                         mb={2.5}
                     />
                 ))}
@@ -56,44 +47,33 @@ const EducationCard = ({ }) => {
         </Card>
     )
 }
-
 const SkillsCard = ({ }) => {
-
-    const skills = [
-        {
-            LANGUAGE: 'JavaScript',
-            LIBRARIES: ['React', 'Angular', 'MUI']
-        },
-        {
-            LANGUAGE: 'Python',
-            LIBRARIES: ['Numpy', 'Pandas', 'Tkinter', 'Kivy']
-        }, 
-        {
-            LANGUAGE: 'Java',
-            LIBRARIES: []
-        }
-    ]
-    const SkillsEntry = ({ language, libraries }) => {
+    const [api_skills, setSkills] = useState([]);
+    useEffect(() => {
+      fetch("/api/skills")  // Since the proxy is set, you don't need the full URL.
+        .then((response) => response.json())
+        .then((data) => setSkills(data))
+        .catch((error) => console.error("Error fetching products:", error));
+    }, []);
+    const SkillsEntry = ({ id, language, libraries }) => {
         return (
-            <div>
+            <div id={id}>
                 <Typography children={language} fontSize={'24px'} />
                 <Stack direction={'row'} spacing={1.5}>
                 {libraries.map((library) => (
-                    <Typography children={library} />
+                    <Typography key={library.id} children={library.name} />
                 ))}
-                
                 </Stack>
             </div>
         )
     }
-
     return (
-        <Card raised='true' sx={{ width: 1 / 2 }}>
+        <Card raised sx={{ width: 1 / 2 }}>
             <CardContent>
                 <Typography children={'Skills'} fontSize={'48px'} align='center' />
                 <Divider sx={dividerStyles} />
-                {skills.map((skill) => (
-                    <SkillsEntry language={skill.LANGUAGE} libraries={skill.LIBRARIES}/>
+                {api_skills.map((skill) => (
+                    <SkillsEntry key={skill.id} language={skill.language} libraries={skill.libraries}/>
                 ))}
             </CardContent>
 
@@ -105,25 +85,41 @@ const SkillsCard = ({ }) => {
 }
 
 const ExperienceCard = ({ }) => {
+    const [experiences, setExperience] = useState([]);
+    useEffect(() => {
+      fetch("/api/experience")  // Since the proxy is set, you don't need the full URL.
+        .then((response) => response.json())
+        .then((data) => setExperience(data))
+        .catch((error) => console.error("Error fetching products:", error));
+    }, []);
+
+    const ExperienceEntry = ({ name, timeframe, description }) => {
+        return (
+            <div>
+                <Stack direction={'row'} sx={{ width: 1 }}>
+                    <Typography children={name} align='left' width={1} fontSize={'20px'} />
+                    <Typography children={timeframe} align='right' width={1} fontSize={'20px'} />
+                </Stack>
+                <Typography children={description} />
+            </div>
+        )
+    }
     return (
-        <Card raised='true' sx={{ width: 1 / 2 }}>
+        <Card raised sx={{ width: 1 / 2 }}>
             <CardContent>
                 <Typography children={'Experience'} fontSize={'48px'} />
                 <Divider sx={dividerStyles} />
-                <Typography children={'project_date'} />
-                <Typography children={'project_description'} />
+                {experiences.map((experience) => (
+                    <ExperienceEntry key={experience.id} name={experience.name} timeframe={experience.timeframe} description={experience.description}/>
+                ))}
             </CardContent>
-
-            <CardActions>
-                <Button size="small">Learn More</Button>
-            </CardActions>
         </Card>
     )
 }
 
 const AboutCard = ({ }) => {
     return (
-        <Card raised='true' sx={{ width: 1 / 2 }}>
+        <Card raised sx={{ width: 1 / 2 }}>
             <CardContent>
                 <Typography children={'About Me!'} fontSize={'48px'} />
                 <Divider sx={dividerStyles} />
