@@ -1,4 +1,8 @@
-import { React, useState } from 'react';
+import { 
+    React, 
+    useState, 
+    useEffect 
+} from 'react';
 
 import {
     Dialog,
@@ -6,10 +10,8 @@ import {
     DialogActions,
     IconButton,
     Stack,
-    Divider,
     Typography,
     Button,
-    TextField,
     Box
 } from '@mui/material';
 
@@ -17,45 +19,74 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import ScrollableDataGrid from '../Components/Scrollable_DataGrid';
 import DropdownMenu from '../Components/Dropdown_Menu';
-import ScrollableTextField from '../Components/Scrollable_Text_Field';
 import AmountCounter from '../Components/Amount_Counter';
+import { renderActionsCell } from '@mui/x-data-grid';
+import { Link } from 'react-router-dom';
 
 const InventoryTrackerPopup = ({ state, stateHandler }) => {
-    const [page, setPage] = useState(false)
+    const [inventory, setInventory] = useState([]);
 
-    const sdg_styles = {
-        width: 1
-    }
+    useEffect(() => {
+        fetch("/api/InventoryTracker")  // Since the proxy is set, you don't need the full URL.
+            .then((response) => response.json())
+            .then((data) => setInventory(data))
+            .catch((error) => console.error("Error fetching products:", error));
+    }, []);
 
     const inventory_fields = [
         //{ field: 'id', headerName: 'ID', width: 75, sortable: false, hide: true },
-        { field: 'resource', headerName: 'Resource', headerAlign: 'center', align: 'left', flex: 1/2},
-        { field: 'remaining', headerName: 'Remaining', type: 'number', headerAlign: 'center', align: 'center', flex: 1/4},
-        { field: 'total', headerName: 'Total', type: 'number', headerAlign: 'center', align: 'center', flex: 1/4}
+        { 
+            field: 'name', 
+            headerName: 'Resource', 
+            headerAlign: 'center', 
+            align: 'center', 
+            flex: 1 / 2, 
+            renderCell: (params) => (
+                <a href={params.row.link} target='_blank' rel="noopener noreferrer" children={params.row.name}/>
+            )},
+        { 
+            field: 'remaining', 
+            headerName: 'Remaining', 
+            type: 'number', 
+            headerAlign: 'center', 
+            align: 'center', 
+            flex: 1 / 4 
+        },
+        { 
+            field: 'total', 
+            headerName: 'Total', 
+            type: 'number', 
+            headerAlign: 'center', 
+            align: 'center', 
+            flex: 1 / 4 
+        }
     ];
-    const inventory_data = [
-        { id: 0, resource: 'Bleach', remaining: 24, total: 50 },
-        { id: 1, resource: 'Fabuloso', remaining: 13, total: 24 },
-        { id: 2, resource: 'Windex', remaining: 34, total: 45 },
-        { id: 3, resource: 'Gloves', remaining: 2, total: 16 },
-        { id: 4, resource: 'Stainless Steel Cleaner', remaining: 50, total: 50 },
-        { id: 5, resource: 'Toilet Bowl Cleaner', remaining: 10, total: 10 },
-        { id: 6, resource: 'Toilet Paper', remaining: 55, total: 150 },
-        { id: 7, resource: 'Paper Towels', remaining: 20, total: 20 },
-        { id: 8, resource: 'Febreeze', remaining: 20, total: 20 },
-    ]
 
     const InventoryTracker = ({ defaultResource }) => {
-        const resourceMenuItems = ["Fabuloso", "Bleach", "Gloves", "Windex"];
 
         const [resource, updateResource] = useState('');
         const [amount, updateAmount] = useState(0);
-        const [ID, updateID] = useState('');
-        const [data, updateData] = useState([]);
+
+        const updateInventory = ({ name, amount }) => {
+            var total = 0
+            if (amount > 0) {
+                total = amount
+            }
+
+            setInventory(prevInv =>
+                prevInv.map(element =>
+                    element.name === name ? {
+                        ...element,
+                        remaining: (element.remaining + amount),
+                        total: (element.total + total)
+                    }
+                        :
+                        element
+            ))}
 
         return (
             <Box sx={{ width: 1 / 2, height: 1 }}>
-                <Typography align='center' style={{ fontSize: '28px'}} children='Inventory Update Request' />
+                <Typography align='center' style={{ fontSize: '28px' }} children='Inventory Update Request' />
 
                 <hr />
 
@@ -63,15 +94,11 @@ const InventoryTrackerPopup = ({ state, stateHandler }) => {
                     label="Resource"
                     defaultValue={defaultResource}
                     handler={updateResource}
-                    menu_items={resourceMenuItems} />
+                    menu_items={inventory.map((element) => element.name)} />
 
                 <hr />
 
-                <AmountCounter amountHandler={updateAmount} amount={amount} negative/>
-
-                <hr />
-
-                <TextField onChange={updateID} variant='outlined' label='Employee ID Number ' size='small' fullWidth />
+                <AmountCounter amountHandler={updateAmount} amount={amount} negative />
 
                 <hr />
 
@@ -79,17 +106,11 @@ const InventoryTrackerPopup = ({ state, stateHandler }) => {
                     variant='contained'
                     color='primary'
                     size='small'
-                    onClick={() => updateData([...data, { resource: resource, amount: amount }])}>
+                    onClick={() => updateInventory({ name: resource, amount: amount })} >
                     Add
                 </Button>
 
-                <ScrollableTextField
-                    data={data}
-                    handler={updateData}
-                    disabled={true}
-                    rows={7}
-                />
-            </Box>
+            </Box >
         )
     }
     return (
@@ -102,8 +123,8 @@ const InventoryTrackerPopup = ({ state, stateHandler }) => {
                 },
             }}>
             <DialogActions>
-                <Stack direction={'row'} sx={{width: 1, ml: 2.5}}>
-                    <Typography children='Inventory Tracker Demo' align='left' sx={{width: 1, fontSize: '28px'}}/>
+                <Stack direction={'row'} sx={{ width: 1, ml: 2.5 }}>
+                    <Typography children='Inventory Tracker Demo' align='left' sx={{ width: 1, fontSize: '28px' }} />
                     <IconButton align='right' onClick={() => stateHandler(!state)}>
                         <CloseIcon />
                     </IconButton>
@@ -111,7 +132,7 @@ const InventoryTrackerPopup = ({ state, stateHandler }) => {
             </DialogActions>
             <DialogContent>
                 <Stack direction={'row'} m={1.25} spacing={1.25} >
-                    <ScrollableDataGrid fields={inventory_fields} data={inventory_data}/>
+                    <ScrollableDataGrid fields={inventory_fields} data={inventory} />
                     <InventoryTracker defaultResource='Fabulosos' />
                 </Stack>
             </DialogContent>
