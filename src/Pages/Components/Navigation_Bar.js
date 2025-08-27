@@ -28,14 +28,32 @@ const NavList = ({ drawerHandler, drawerState }) => {
       >
         <ListItemIcon
           sx={{ width: 1 / 3 }}
-          children={<HomeIcon sx={{ fontSize: "48px" }} />}
+          children={
+            <HomeIcon
+              sx={{
+                fontSize: {
+                  xs: "2rem",
+                  sm: "2.25rem",
+                  md: "2.5rem",
+                  lg: "2.75rem",
+                },
+              }}
+            />
+          }
         />
 
         <ListItemText
           primary={
             <Typography
               variant="body1"
-              sx={{ fontSize: "48px" }}
+              sx={{
+                fontSize: {
+                  xs: "2rem",
+                  sm: "2.25rem",
+                  md: "2.5rem",
+                  lg: "2.75rem",
+                },
+              }}
               children="Home"
             />
           }
@@ -48,14 +66,32 @@ const NavList = ({ drawerHandler, drawerState }) => {
       >
         <ListItemIcon
           sx={{ width: 1 / 3 }}
-          children={<Person sx={{ fontSize: "48px" }} />}
+          children={
+            <Person
+              sx={{
+                fontSize: {
+                  xs: "2rem",
+                  sm: "2.25rem",
+                  md: "2.5rem",
+                  lg: "2.75rem",
+                },
+              }}
+            />
+          }
         />
 
         <ListItemText
           primary={
             <Typography
               variant="body1"
-              sx={{ fontSize: "48px" }}
+              sx={{
+                fontSize: {
+                  xs: "2rem",
+                  sm: "2.25rem",
+                  md: "2.5rem",
+                  lg: "2.75rem",
+                },
+              }}
               children="About"
             />
           }
@@ -68,14 +104,32 @@ const NavList = ({ drawerHandler, drawerState }) => {
       >
         <ListItemIcon
           sx={{ width: 1 / 3 }}
-          children={<TipsAndUpdates sx={{ fontSize: "48px" }} />}
+          children={
+            <TipsAndUpdates
+              sx={{
+                fontSize: {
+                  xs: "2rem",
+                  sm: "2.25rem",
+                  md: "2.5rem",
+                  lg: "2.75rem",
+                },
+              }}
+            />
+          }
         />
 
         <ListItemText
           primary={
             <Typography
               variant="body1"
-              sx={{ fontSize: "48px" }}
+              sx={{
+                fontSize: {
+                  xs: "2rem",
+                  sm: "2.25rem",
+                  md: "2.5rem",
+                  lg: "2.75rem",
+                },
+              }}
               children="Projects"
             />
           }
@@ -88,14 +142,32 @@ const NavList = ({ drawerHandler, drawerState }) => {
       >
         <ListItemIcon
           sx={{ width: 1 / 3 }}
-          children={<ContactSupport sx={{ fontSize: "48px" }} />}
+          children={
+            <ContactSupport
+              sx={{
+                fontSize: {
+                  xs: "2rem",
+                  sm: "2.25rem",
+                  md: "2.5rem",
+                  lg: "2.75rem",
+                },
+              }}
+            />
+          }
         />
 
         <ListItemText
           primary={
             <Typography
               variant="body1"
-              sx={{ fontSize: "48px" }}
+              sx={{
+                fontSize: {
+                  xs: "2rem",
+                  sm: "2.25rem",
+                  md: "2.5rem",
+                  lg: "2.75rem",
+                },
+              }}
               children="Contact"
             />
           }
@@ -107,7 +179,17 @@ const NavList = ({ drawerHandler, drawerState }) => {
 const NavDrawer = ({ drawerState, drawerHandler }) => {
   return (
     <Drawer
-      sx={{ "& .MuiDrawer-paper": { boxSizing: "border-box", width: 1 / 4 } }}
+      sx={{
+        "& .MuiDrawer-paper": {
+          boxSizing: "border-box",
+          width: {
+            xs: 250,
+            sm: 275,
+            md: 300,
+            lg: 325
+          },
+        },
+      }}
       anchor="left"
       open={drawerState}
       onClose={() => drawerHandler(!drawerState)}
