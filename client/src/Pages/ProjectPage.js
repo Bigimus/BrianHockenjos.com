@@ -1,7 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './pageStyles.css';
 import { Card, CardActions, CardContent, Typography, Stack, IconButton, Tooltip } from '@mui/material';
 import InventoryTrackerPopup from './Inventory-Tracker/InventoryTrackerPopup';
 import GitHubIcon from '@mui/icons-material/GitHub'
@@ -29,7 +28,7 @@ const ProjectPage = () => {
                 <Card raised sx={styles}>
                     <CardContent>
                         <Stack direction={'row'}>
-                            <Typography children={name} align='left' width={1} sx={{ fontSize: '28px' }} />
+                            <Typography children={name} align='left' width={1} sx={{ fontSize: '22px' }} />
                             <Typography children={timeframe} align='right' width={1} sx={{ fontSize: '18px' }} />
                         </Stack>
                         <Typography children={description} sx={{ fontSize: '18px' }} />
@@ -66,7 +65,7 @@ const ProjectPage = () => {
     return (
         <div>
             <Stack direction='row' sx={{ mb: 7.5 }}>
-                <Stack sx={{ width: 1 / 2, mt: 5 }}>
+                <Stack sx={{ width: 1 / 2, mt: 2.5 }}>
                     {odd_projects.map((project) => (
                         <ProjectEntry
                             key={project.id}
@@ -83,7 +82,7 @@ const ProjectPage = () => {
                         />
                     ))}
                 </Stack>
-                <Stack sx={{ width: 1 / 2, mt: 5 }}>
+                <Stack sx={{ width: 1 / 2, mt: 2.5}}>
                     {even_projects.map((project) => (
                         <ProjectEntry
                             key={project.id}

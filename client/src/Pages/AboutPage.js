@@ -20,6 +20,7 @@ import {
 } from 'react';
 
 import { 
+    padding,
     styled 
 } from '@mui/system';
 
@@ -174,26 +175,21 @@ const AboutCard = ({ }) => {
             <CardContent>
                 <Typography children={'About Me!'} fontSize={'48px'} />
                 <Divider sx={dividerStyles} />
-                <Typography children={'project_date'} />
-                <Typography children={'project_description'} />
+                <Typography children={'Hi, My name is Brian Hockenjos. I studied Electrical and Computer Engineering at New York Institute of Technology (NYIT). During my time at NYIT I learned various skills in and out of the classroom. School taught me how to think and I taught myself how to apply what school taught me. While I have not been working in my field, I still practice engineering principals while working at Live Nation; Especially in my current position as Facilites Manager. I have preformed numerous lighting upgrades throughout the venue, I have taught myself how to repair simply plumbing issues (broken sinks, sweating copper, repairing PVC gutter drains, etc..) This website is written in JavaScript and C#, both of which I am self taught. I consider myself a jack of all trades, but a master of none. Which could be consturded as a negative thing by some, however, I believe that it is important to be able to handle everyday issues around you. Not having to rely on another person to come fix something saves you time and money. '} />
             </CardContent>
-
-            <CardActions>
-                <Button size="small">Learn More</Button>
-            </CardActions>
         </Card>
     )
 }
 
 const AboutPage = ({ }) => {
     return (
-        <Stack direction={'row'}>
+        <Stack direction={'row'} >
             <Stack height={1} width={1}>
                 <ExperienceCard />
-                <EducationCard />
+                {/* <SkillsCard /> */}
             </Stack>
             <Stack height={1} width={1}>
-                <SkillsCard />
+                <EducationCard />
                 <AboutCard />
             </Stack>
         </Stack>

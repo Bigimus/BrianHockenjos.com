@@ -58,11 +58,9 @@ namespace server.Controllers {
                 },
                 new Project { 
                     Id = 7, 
-                    Name = "Inventory Tracker Website", 
+                    Name = "BrianHockenjos.com", 
                     Timeframe = "Jan 2024 - Active", 
-                    Link = "",
-                    Path = "Inventory-Tracker",
-                    Description = "" 
+                    Description = "Using React.JS and ASP.Net, I designed and coded this website from scratch." 
                 },
             };
 

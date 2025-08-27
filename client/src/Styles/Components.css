@@ -1,0 +1,18 @@
+.App-Bar {
+    background-color: #f26852;
+    position: fixed;
+    justify-content: center;
+}
+.App-Bar-Parent {
+    position: fixed;
+    height: 1000;
+}
+
+.Project-Card {
+    padding-top: 1/10;
+}
+
+.Icon-Button {
+    padding-right: 100;
+}
+

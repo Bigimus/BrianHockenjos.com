@@ -16,7 +16,7 @@ namespace server.Controllers {
                     Location = "Merrick, NY",
                     Timeframe = "Sep 2014 - Jun 2018", 
                     Degree = "Advanced Regents Dipoloma",
-                    Link = "https://www.bellmore-merrick.k12.ny.us/schools/sanford_h_calhoun_high_school"
+                    Link = "https://www.bellmore-merrick.k12.ny.us/sanford-h-calhoun-high-school-home"
                 },
                 new Education { 
                     Id = 2, 
