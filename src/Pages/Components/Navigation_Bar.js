@@ -184,12 +184,7 @@ export const NavBar = ({}) => {
     <Box
       position="fixed"
       sx={{
-        height: {
-          xs: 85,
-          sm: 90,
-          md: 95,
-          lg: 100,
-        },
+
       }}
     >
       <AppBar>
@@ -201,6 +196,12 @@ export const NavBar = ({}) => {
             backgroundColor: "#f26852",
             display: "flex",
             alignItems: "center",
+            minHeight: {
+              xs: "7rem",
+              sm: "6rem",
+              md: "5rem",
+              lg: "4rem",
+            }
           }}
         >
           <Box
