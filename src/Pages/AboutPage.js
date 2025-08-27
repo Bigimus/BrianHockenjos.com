@@ -34,6 +34,27 @@ const cardStyles = {
     width: '97.5%'
 }
 
+const CardStyles = {
+    marginTop: {
+            xs: 4,
+            sm: 6,
+            md: 8,
+            lg: 10
+        },
+        marginLeft: {
+            xs: 1.75,
+            sm: 2,
+            md: 2.25,
+            lg: 2.5
+        },
+        marginRight: {
+            xs: 1.75,
+            sm: 2,
+            md: 2.25,
+            lg: 2.5
+        },
+}
+
 const EducationCard = ({ }) => {
     const [degrees, setDegrees] = useState([]);
     useEffect(() => {
@@ -58,7 +79,7 @@ const EducationCard = ({ }) => {
         )
     }
     return (
-        <Card raised sx={cardStyles}>
+        <Card raised sx={CardStyles}>
             <CardContent>
                 <Typography children={'Education'} fontSize={'48px'} align='center' />
                 <Divider sx={dividerStyles} />
@@ -70,7 +91,6 @@ const EducationCard = ({ }) => {
                         degree={degree.degree}
                         timeframe={degree.timeframe}
                         link={degree.link}
-                        mb={2.5}
                     />
                 ))}
             </CardContent>
@@ -101,7 +121,7 @@ const SkillsCard = ({ }) => {
         )
     }
     return (
-        <Card raised sx={cardStyles}>
+        <Card raised sx={CardStyles}>
             <CardContent>
                 <Typography children={'Skills'} fontSize={'48px'} align='center' />
                 <Divider sx={dividerStyles} />
@@ -152,7 +172,7 @@ const ExperienceCard = ({ }) => {
         )
     }
     return (
-        <Card raised sx={cardStyles}>
+        <Card raised sx={CardStyles}>
             <CardContent>
                 <Typography children={'Experience'} fontSize={'48px'} align='center'/>
                 <Divider sx={dividerStyles} />
@@ -183,16 +203,12 @@ const AboutCard = ({ }) => {
 
 const AboutPage = ({ }) => {
     return (
-        <Stack direction={'row'} >
+
             <Stack height={1} width={1}>
                 <ExperienceCard />
-                {/* <SkillsCard /> */}
-            </Stack>
-            <Stack height={1} width={1}>
                 <EducationCard />
-                {/* <AboutCard /> */}
             </Stack>
-        </Stack>
+
     )
 }
 
