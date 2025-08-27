@@ -17,6 +17,15 @@ import ContactSupport from "@mui/icons-material/ContactSupport";
 import TipsAndUpdates from "@mui/icons-material/TipsAndUpdates";
 import Person from "@mui/icons-material/Person";
 import "../../Styles/Components.css";
+
+const iconStyles = {
+  fontSize: {
+    xs: "2rem",
+    sm: "2.25rem",
+    md: "2.5rem",
+    lg: "2.75rem",
+  },
+};
 const NavList = ({ drawerHandler, drawerState }) => {
   const nav = useNavigate();
 
@@ -30,14 +39,7 @@ const NavList = ({ drawerHandler, drawerState }) => {
           sx={{ width: 1 / 3 }}
           children={
             <HomeIcon
-              sx={{
-                fontSize: {
-                  xs: "2rem",
-                  sm: "2.25rem",
-                  md: "2.5rem",
-                  lg: "2.75rem",
-                },
-              }}
+              sx={iconStyles}
             />
           }
         />
@@ -46,14 +48,7 @@ const NavList = ({ drawerHandler, drawerState }) => {
           primary={
             <Typography
               variant="body1"
-              sx={{
-                fontSize: {
-                  xs: "2rem",
-                  sm: "2.25rem",
-                  md: "2.5rem",
-                  lg: "2.75rem",
-                },
-              }}
+              sx={iconStyles}
               children="Home"
             />
           }
@@ -68,14 +63,7 @@ const NavList = ({ drawerHandler, drawerState }) => {
           sx={{ width: 1 / 3 }}
           children={
             <Person
-              sx={{
-                fontSize: {
-                  xs: "2rem",
-                  sm: "2.25rem",
-                  md: "2.5rem",
-                  lg: "2.75rem",
-                },
-              }}
+              sx={iconStyles}
             />
           }
         />
@@ -84,14 +72,7 @@ const NavList = ({ drawerHandler, drawerState }) => {
           primary={
             <Typography
               variant="body1"
-              sx={{
-                fontSize: {
-                  xs: "2rem",
-                  sm: "2.25rem",
-                  md: "2.5rem",
-                  lg: "2.75rem",
-                },
-              }}
+              sx={iconStyles}
               children="About"
             />
           }
@@ -106,14 +87,7 @@ const NavList = ({ drawerHandler, drawerState }) => {
           sx={{ width: 1 / 3 }}
           children={
             <TipsAndUpdates
-              sx={{
-                fontSize: {
-                  xs: "2rem",
-                  sm: "2.25rem",
-                  md: "2.5rem",
-                  lg: "2.75rem",
-                },
-              }}
+              sx={iconStyles}
             />
           }
         />
@@ -122,14 +96,7 @@ const NavList = ({ drawerHandler, drawerState }) => {
           primary={
             <Typography
               variant="body1"
-              sx={{
-                fontSize: {
-                  xs: "2rem",
-                  sm: "2.25rem",
-                  md: "2.5rem",
-                  lg: "2.75rem",
-                },
-              }}
+              sx={iconStyles}
               children="Projects"
             />
           }
@@ -144,14 +111,7 @@ const NavList = ({ drawerHandler, drawerState }) => {
           sx={{ width: 1 / 3 }}
           children={
             <ContactSupport
-              sx={{
-                fontSize: {
-                  xs: "2rem",
-                  sm: "2.25rem",
-                  md: "2.5rem",
-                  lg: "2.75rem",
-                },
-              }}
+              sx={iconStyles}
             />
           }
         />
@@ -160,14 +120,7 @@ const NavList = ({ drawerHandler, drawerState }) => {
           primary={
             <Typography
               variant="body1"
-              sx={{
-                fontSize: {
-                  xs: "2rem",
-                  sm: "2.25rem",
-                  md: "2.5rem",
-                  lg: "2.75rem",
-                },
-              }}
+              sx={iconStyles}
               children="Contact"
             />
           }
@@ -186,7 +139,7 @@ const NavDrawer = ({ drawerState, drawerHandler }) => {
             xs: 250,
             sm: 275,
             md: 300,
-            lg: 325
+            lg: 325,
           },
         },
       }}
@@ -232,10 +185,10 @@ export const NavBar = ({}) => {
       position="fixed"
       sx={{
         height: {
-          xs: 60,
-          sm: 65,
-          md: 70,
-          lg: 75,
+          xs: 85,
+          sm: 90,
+          md: 95,
+          lg: 100,
         },
       }}
     >
