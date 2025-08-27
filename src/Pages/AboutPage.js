@@ -190,7 +190,7 @@ const AboutPage = ({ }) => {
             </Stack>
             <Stack height={1} width={1}>
                 <EducationCard />
-                <AboutCard />
+                {/* <AboutCard /> */}
             </Stack>
         </Stack>
     )
