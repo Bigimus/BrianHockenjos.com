@@ -20,10 +20,10 @@ import "../../Styles/Components.css";
 
 const iconStyles = {
   fontSize: {
-    xs: "2rem",
-    sm: "2.25rem",
-    md: "2.5rem",
-    lg: "2.75rem",
+    xs: "3.85rem",
+    sm: "3.9rem",
+    md: "3.95rem",
+    lg: "4rem",
   },
 };
 const NavList = ({ drawerHandler, drawerState }) => {
@@ -37,20 +37,12 @@ const NavList = ({ drawerHandler, drawerState }) => {
       >
         <ListItemIcon
           sx={{ width: 1 / 3 }}
-          children={
-            <HomeIcon
-              sx={iconStyles}
-            />
-          }
+          children={<HomeIcon sx={iconStyles} />}
         />
 
         <ListItemText
           primary={
-            <Typography
-              variant="body1"
-              sx={iconStyles}
-              children="Home"
-            />
+            <Typography variant="body1" sx={iconStyles} children="Home" />
           }
         />
       </ListItemButton>
@@ -61,20 +53,12 @@ const NavList = ({ drawerHandler, drawerState }) => {
       >
         <ListItemIcon
           sx={{ width: 1 / 3 }}
-          children={
-            <Person
-              sx={iconStyles}
-            />
-          }
+          children={<Person sx={iconStyles} />}
         />
 
         <ListItemText
           primary={
-            <Typography
-              variant="body1"
-              sx={iconStyles}
-              children="About"
-            />
+            <Typography variant="body1" sx={iconStyles} children="About" />
           }
         />
       </ListItemButton>
@@ -85,20 +69,12 @@ const NavList = ({ drawerHandler, drawerState }) => {
       >
         <ListItemIcon
           sx={{ width: 1 / 3 }}
-          children={
-            <TipsAndUpdates
-              sx={iconStyles}
-            />
-          }
+          children={<TipsAndUpdates sx={iconStyles} />}
         />
 
         <ListItemText
           primary={
-            <Typography
-              variant="body1"
-              sx={iconStyles}
-              children="Projects"
-            />
+            <Typography variant="body1" sx={iconStyles} children="Projects" />
           }
         />
       </ListItemButton>
@@ -109,20 +85,12 @@ const NavList = ({ drawerHandler, drawerState }) => {
       >
         <ListItemIcon
           sx={{ width: 1 / 3 }}
-          children={
-            <ContactSupport
-              sx={iconStyles}
-            />
-          }
+          children={<ContactSupport sx={iconStyles} />}
         />
 
         <ListItemText
           primary={
-            <Typography
-              variant="body1"
-              sx={iconStyles}
-              children="Contact"
-            />
+            <Typography variant="body1" sx={iconStyles} children="Contact" />
           }
         />
       </ListItemButton>
@@ -136,10 +104,10 @@ const NavDrawer = ({ drawerState, drawerHandler }) => {
         "& .MuiDrawer-paper": {
           boxSizing: "border-box",
           width: {
-            xs: 250,
-            sm: 275,
-            md: 300,
-            lg: 325,
+            xs: "15rem",
+            sm: "20rem",
+            md: "25rem",
+            lg: "30rem",
           },
         },
       }}
@@ -181,12 +149,7 @@ export const NavBar = ({}) => {
   });
 
   return (
-    <Box
-      position="fixed"
-      sx={{
-
-      }}
-    >
+    <Box position="fixed" sx={{}}>
       <AppBar>
         <Toolbar
           sx={{
@@ -197,11 +160,11 @@ export const NavBar = ({}) => {
             display: "flex",
             alignItems: "center",
             minHeight: {
-              xs: "7rem",
-              sm: "6rem",
-              md: "5rem",
-              lg: "4rem",
-            }
+              xs: "17rem",
+              sm: "13rem",
+              md: "9rem",
+              lg: "5rem",
+            },
           }}
         >
           <Box
@@ -212,18 +175,7 @@ export const NavBar = ({}) => {
               textAlign: "center",
             }}
           >
-            <Typography
-              component="div"
-              children={title}
-              sx={{
-                fontSize: {
-                  xs: "2rem",
-                  sm: "2.25rem",
-                  md: "2.5rem",
-                  lg: "2.75rem",
-                },
-              }}
-            />
+            <Typography component="div" children={title} sx={iconStyles} />
           </Box>
           <IconButton
             edge="start"
@@ -232,7 +184,7 @@ export const NavBar = ({}) => {
             onClick={() => toggleDrawer(!drawerState)}
             sx={{ pointerEvents: "auto" }}
           >
-            <MenuIcon sx={{ fontSize: "40px" }} />
+            <MenuIcon sx={iconStyles} />
           </IconButton>
         </Toolbar>
       </AppBar>
