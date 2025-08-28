@@ -88,7 +88,7 @@ const formatDegrees = (data) =>
     degree: entry.Degree,
     link: entry.Link,
   }));
-  
+
 const EducationCard = ({}) => {
   const [degrees, setDegrees] = useState([]);
   useEffect(() => {
@@ -269,7 +269,7 @@ const AboutPage = ({}) => {
         width: "100%",
       }}
     >
-      <Stack width={1} alignItems={"center"} spacing={4} sx={{}}>
+      <Stack width={1} alignItems={"center"} spacing={4}>
         <Box
           sx={{
             minHeight: {
