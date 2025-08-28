@@ -88,6 +88,7 @@ const formatDegrees = (data) =>
     degree: entry.Degree,
     link: entry.Link,
   }));
+  
 const EducationCard = ({}) => {
   const [degrees, setDegrees] = useState([]);
   useEffect(() => {
