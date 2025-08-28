@@ -9,7 +9,7 @@ import ToolBar from './Pages/Components/Tool_Bar';
 
 function App() {
   return (
-    <div>
+    <div style={{height: '100vh', overflow: 'hidden'}}>
       <NavBar/>
       <Routes>
         <Route index element={<HomePage />} />
