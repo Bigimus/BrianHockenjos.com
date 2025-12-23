@@ -15,88 +15,65 @@ import { useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import ContactSupport from "@mui/icons-material/ContactSupport";
 import TipsAndUpdates from "@mui/icons-material/TipsAndUpdates";
-import Person from "@mui/icons-material/Person";
+import SchoolIcon from '@mui/icons-material/School';
+import BadgeIcon from '@mui/icons-material/Badge';
 import "../../Styles/Components.css";
+import Pages from "../../Data/Pages.json";
 
 const iconStyles = {
   fontSize: {
-    xs: "3.85rem",
-    sm: "3.9rem",
-    md: "3.95rem",
-    lg: "4rem",
+    xs: "3.45rem",
+    sm: "3.55rem",
+    md: "3.65rem",
+    lg: "3.75rem",
   },
 };
+
 const NavList = ({ drawerHandler, drawerState }) => {
+  const iconMap = {
+    HomeIcon: HomeIcon,
+    SchoolIcon: SchoolIcon,
+    BadgeIcon: BadgeIcon,
+    TipsAndUpdates: TipsAndUpdates,
+    ContactSupport: ContactSupport
+  };
   const nav = useNavigate();
 
+  const PageEntry = ({ name, icon }) => {
+    const Icon = iconMap[icon] ?? HomeIcon;
+    return (
+      <ListItemButton
+        onClick={() => (nav(`/${name}`), drawerHandler(!drawerState))}
+        htmlFor={name}
+      >
+        <ListItemIcon
+          sx={{ width: 1 / 4 }}
+          children={<Icon sx={iconStyles} />}
+        />
+
+        <ListItemText
+          primary={
+            <Typography variant="body1" sx={iconStyles} children={name} />
+          }
+        />
+      </ListItemButton>
+    )
+  }
+
+  const PageList = ({ data }) => {
+    return (
+      <List>
+        {Object.entries(data).map(([name, icon]) => (
+          <PageEntry key={name} name={name} icon={icon.icon} />
+        ))}
+      </List>
+    )
+  }
   return (
-    <List key="drawer">
-      <ListItemButton
-        onClick={() => (nav("/"), drawerHandler(!drawerState))}
-        htmlFor="home"
-      >
-        <ListItemIcon
-          sx={{ width: 1 / 3 }}
-          children={<HomeIcon sx={iconStyles} />}
-        />
-
-        <ListItemText
-          primary={
-            <Typography variant="body1" sx={iconStyles} children="Home" />
-          }
-        />
-      </ListItemButton>
-
-      <ListItemButton
-        onClick={() => (nav("/About"), drawerHandler(!drawerState))}
-        htmlFor="about"
-      >
-        <ListItemIcon
-          sx={{ width: 1 / 3 }}
-          children={<Person sx={iconStyles} />}
-        />
-
-        <ListItemText
-          primary={
-            <Typography variant="body1" sx={iconStyles} children="About" />
-          }
-        />
-      </ListItemButton>
-
-      <ListItemButton
-        onClick={() => (nav("/Projects"), drawerHandler(!drawerState))}
-        htmlFor="projects"
-      >
-        <ListItemIcon
-          sx={{ width: 1 / 3 }}
-          children={<TipsAndUpdates sx={iconStyles} />}
-        />
-
-        <ListItemText
-          primary={
-            <Typography variant="body1" sx={iconStyles} children="Projects" />
-          }
-        />
-      </ListItemButton>
-
-      <ListItemButton
-        onClick={() => (nav("/Contact"), drawerHandler(!drawerState))}
-        htmlFor="contact"
-      >
-        <ListItemIcon
-          sx={{ width: 1 / 3 }}
-          children={<ContactSupport sx={iconStyles} />}
-        />
-
-        <ListItemText
-          primary={
-            <Typography variant="body1" sx={iconStyles} children="Contact" />
-          }
-        />
-      </ListItemButton>
-    </List>
+    <PageList data={Pages} />
   );
 };
+
 const NavDrawer = ({ drawerState, drawerHandler }) => {
   return (
     <Drawer
@@ -124,7 +101,7 @@ const NavDrawer = ({ drawerState, drawerHandler }) => {
   );
 };
 
-export const NavBar = ({}) => {
+export const NavBar = ({ }) => {
   var [drawerState, toggleDrawer] = useState(false);
   const location = useLocation();
   const [title, setTitle] = useState("");
@@ -134,8 +111,11 @@ export const NavBar = ({}) => {
       case "/Home":
         setTitle("Home");
         break;
-      case "/About":
-        setTitle("About Me");
+      case "/Education":
+        setTitle("Education");
+        break;
+      case "/Experience":
+        setTitle("Experience");
         break;
       case "/Contact":
         setTitle("Contact Me");

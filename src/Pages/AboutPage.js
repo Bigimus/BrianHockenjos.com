@@ -260,6 +260,45 @@ const ExperienceCard = ({}) => {
   );
 };
 
+// const AboutPage = ({}) => {
+//   return (
+//     <Box
+//       sx={{
+//         height: "100vh", // full screen height
+//         overflowY: "auto", // scroll if needed
+//         width: "100%",
+//       }}
+//     >
+//       <Stack width={1} alignItems={"center"} spacing={4}>
+//         <Box
+//           sx={{
+//             minHeight: {
+//               xs: "17rem",
+//               sm: "13rem",
+//               md: "9rem",
+//               lg: "5rem",
+//             },
+//           }}
+//           width={1}
+//         />
+//         <ExperienceCard />
+//         <EducationCard />
+//         <Box
+//           sx={{
+//             minHeight: {
+//               xs: "17rem",
+//               sm: "13rem",
+//               md: "9rem",
+//               lg: "5rem",
+//             },
+//           }}
+//           width={1}
+//         />
+//       </Stack>
+//     </Box>
+//   );
+// };
+
 const AboutPage = ({}) => {
   return (
     <Box
@@ -269,31 +308,9 @@ const AboutPage = ({}) => {
         width: "100%",
       }}
     >
-      <Stack width={1} alignItems={"center"} spacing={4}>
-        <Box
-          sx={{
-            minHeight: {
-              xs: "17rem",
-              sm: "13rem",
-              md: "9rem",
-              lg: "5rem",
-            },
-          }}
-          width={1}
-        />
+      <Stack direction={'row'}>
         <ExperienceCard />
         <EducationCard />
-        <Box
-          sx={{
-            minHeight: {
-              xs: "17rem",
-              sm: "13rem",
-              md: "9rem",
-              lg: "5rem",
-            },
-          }}
-          width={1}
-        />
       </Stack>
     </Box>
   );

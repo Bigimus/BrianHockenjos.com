@@ -1,0 +1,17 @@
+{
+    "Home":{
+        "icon": "HomeIcon"
+    },
+    "Education":{
+        "icon": "SchoolIcon"
+    },
+    "Experience":{
+        "icon": "BadgeIcon"
+    },
+    "Projects":{
+        "icon": "TipsAndUpdates"
+    },
+    "Contact":{
+        "icon": "ContactSupport"
+    }
+}
