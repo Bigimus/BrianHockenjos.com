@@ -96,12 +96,10 @@ const ExperiencePage = ({ }) => {
       sx={{
         height: "100vh", // full screen height
         overflowY: "auto", // scroll if needed
-        width: "100%",
       }}
     >
-      <Stack>
-        <ExperienceCard />
-      </Stack>
+      <ExperienceCard />
+      <Box sx={{ height: 1/12}} />
     </Box>
   );
 };

@@ -154,7 +154,7 @@ export const NavBar = ({ }) => {
   });
 
   return (
-    <Box sx={{height:1}}>
+    <Box sx={{height:1/8}}>
       <AppBar>
         <Toolbar
           sx={{

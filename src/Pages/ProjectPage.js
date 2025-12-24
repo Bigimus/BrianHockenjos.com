@@ -16,63 +16,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import Projects from "../Data/Projects.json";
 import { Height } from "@mui/icons-material";
-
-const toolbarSpacing = {
-  minHeight: {
-    xs: "17rem",
-    sm: "13rem",
-    md: "9rem",
-    lg: "5rem",
-  },
-};
-const CardStyles = {
-  marginTop: {
-    xs: 1.75,
-    sm: 2,
-    md: 2.25,
-    lg: 2.5,
-  },
-  marginLeft: {
-    xs: 1.75,
-    sm: 2,
-    md: 2.25,
-    lg: 2.5,
-  },
-  marginRight: {
-    xs: 1.75,
-    sm: 2,
-    md: 2.25,
-    lg: 2.5,
-  },
-  paddingLeft: {
-    xs: 1.75,
-    sm: 2,
-    md: 2.25,
-    lg: 2.5,
-  },
-  paddingRight: {
-    xs: 1.75,
-    sm: 2,
-    md: 2.25,
-    lg: 2.5,
-  },
-  width: {
-    xs: "85%",
-    sm: "87.5%",
-    md: "90%",
-    lg: "92.5%",
-  },
-  height: {
-    xs: "14rem",
-    sm: "16rem",
-    md: "18rem",
-    lg: "20rem",
-  },
-  display: 'flex',
-  flexDirection: "column",
-  justifyContent: "space-between",
-  
-};
+import { ToolbarStyles, ProjectCardStyles } from "../Styles/ProjectStyles";
 const formateProjects = (data) =>
   Object.values(data).map((entry) => ({
     name: entry.Name,
@@ -100,7 +44,7 @@ const ProjectPage = () => {
   }) => {
     return (
       <div>
-        <Card raised sx={CardStyles}>
+        <Card raised sx={ProjectCardStyles}>
           <CardContent sx={{flexGrow: 1}}>
             <Stack direction={"row"}>
               <Typography
@@ -149,7 +93,7 @@ const ProjectPage = () => {
     >
       <Stack direction="row"width={1}>
         <Stack width={'50%'}>
-          <Box sx={toolbarSpacing} width={1} />
+          <Box sx={ToolbarStyles} width={1} />
           {odd_projects.map((project) => (
             <ProjectEntry
               name={project.name}
@@ -159,10 +103,10 @@ const ProjectPage = () => {
               path={project.path}
             />
           ))}
-          <Box sx={toolbarSpacing} width={1} />
+          <Box sx={ToolbarStyles} width={1} />
         </Stack>
         <Stack width={'50%'}>
-          <Box sx={toolbarSpacing} width={1} />
+          <Box sx={ToolbarStyles} width={1} />
           {even_projects.map((project) => (
             <ProjectEntry
               name={project.name}
@@ -172,10 +116,11 @@ const ProjectPage = () => {
               path={project.path}
             />
           ))}
-          <Box sx={toolbarSpacing} width={1} />
+          <Box sx={ToolbarStyles} width={1} />
         </Stack>
       </Stack>
       <InventoryTrackerPopup state={isOpen} stateHandler={setIsOpen} />
+      <Box sx={{height: 20}}/>
     </Box>
   );
 };

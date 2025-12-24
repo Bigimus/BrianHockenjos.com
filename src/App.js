@@ -8,10 +8,12 @@ import ProjectPage from './Pages/ProjectPage';
 import ContactPage from './Pages/ContactPage';
 import AboutPage from './Pages/AboutPage';
 import ToolBar from './Pages/Components/Tool_Bar';
+import React from 'react';
+import { Box } from '@mui/material';
 
 function App() {
   return (
-    <div>
+    <Box>
       <NavBar/>
       <Routes>
         <Route index element={<HomePage />} />
@@ -22,7 +24,7 @@ function App() {
         <Route path='Contact' element={<ContactPage />} />
       </Routes>
       <ToolBar />
-    </div>
+    </Box>
 
   );
 }
