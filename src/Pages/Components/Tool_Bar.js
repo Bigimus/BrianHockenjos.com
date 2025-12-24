@@ -28,10 +28,10 @@ const ToolBar = () => {
           justifyContent: "center",
           backgroundColor: "#f26852",
           minHeight: {
-            xs: "12.5rem",
-            sm: "10rem",
-            md: "9rem",
-            lg: "5rem",
+              xs: "17rem",
+              sm: "13rem",
+              md: "9rem",
+              lg: "5rem",
           },
         }}
       >

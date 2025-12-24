@@ -62,15 +62,16 @@ const CardStyles = {
     md: "90%",
     lg: "92.5%",
   },
-  minHeight: {
-    xs: "10rem",
-    sm: "12rem",
-    md: "14rem",
-    lg: "16rem",
+  height: {
+    xs: "14rem",
+    sm: "16rem",
+    md: "18rem",
+    lg: "20rem",
   },
   display: 'flex',
   flexDirection: "column",
-  justifyContent: "space-between"
+  justifyContent: "space-between",
+  
 };
 const formateProjects = (data) =>
   Object.values(data).map((entry) => ({
@@ -81,7 +82,6 @@ const formateProjects = (data) =>
   }));
 const ProjectPage = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
   const [api_projects, setProjects] = useState([]);
 
   useEffect(() => {
@@ -148,7 +148,7 @@ const ProjectPage = () => {
       }}
     >
       <Stack direction="row"width={1}>
-        <Stack width={1}>
+        <Stack width={'50%'}>
           <Box sx={toolbarSpacing} width={1} />
           {odd_projects.map((project) => (
             <ProjectEntry
@@ -161,7 +161,7 @@ const ProjectPage = () => {
           ))}
           <Box sx={toolbarSpacing} width={1} />
         </Stack>
-        <Stack width={1}>
+        <Stack width={'50%'}>
           <Box sx={toolbarSpacing} width={1} />
           {even_projects.map((project) => (
             <ProjectEntry
