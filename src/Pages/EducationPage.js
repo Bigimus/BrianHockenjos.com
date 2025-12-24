@@ -1,23 +1,19 @@
 import {
   Card,
-  CardActions,
-  CardContent,
-  Button,
+  CardContent, 
   Typography,
   Stack,
-  Divider,
   Link,
-  List,
-  ListItem,
-  ListItemText,
   Box,
 } from "@mui/material";
 
-import { React, useEffect, useState } from "react";
+import {useEffect, useState } from "react";
 
-import { maxWidth, padding, styled, width } from "@mui/system";
 
-import Education from "../Data/Experience.json";
+import Education from "../Data/Education.json";
+import SkillsCard from "./Components/SkillsCard.js"
+import "../Styles/Components.css"
+
 const dividerStyles = {
   mb: 1.25,
 };
@@ -129,8 +125,6 @@ const EducationCard = ({}) => {
   return (
     <Card raised sx={CardStyles}>
       <CardContent>
-        <Typography children={"Education"} fontSize={"48px"} align="center" />
-        <Divider sx={dividerStyles} />
         {degrees.map((degree) => (
           <EducationEntry
             school={degree.school}
@@ -154,7 +148,7 @@ const EducationPage = ({}) => {
         width: "100%",
       }}
     >
-      <Stack direction={'row'}>
+      <Stack>
         <EducationCard />
       </Stack>
     </Box>

@@ -1,17 +1,17 @@
 {
-    "Home":{
+    "Home": {
         "icon": "HomeIcon"
     },
-    "Education":{
+    "Education": {
         "icon": "SchoolIcon"
     },
-    "Experience":{
+    "Experience": {
         "icon": "BadgeIcon"
     },
-    "Projects":{
+    "Projects": {
         "icon": "TipsAndUpdates"
     },
-    "Contact":{
+    "Contact": {
         "icon": "ContactSupport"
     }
 }

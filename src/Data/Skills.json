@@ -1,0 +1,10 @@
+{
+    "Java":{
+        "level": "Intermediate",
+        "icon": ""
+    },
+    "JavaScript":{
+        "level": "Proficient",
+        "icon": "JavaScriptIcon"
+    }
+}

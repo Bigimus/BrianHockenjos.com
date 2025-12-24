@@ -1,3 +1,4 @@
+/* React Imports */
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
@@ -5,20 +6,32 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItemIcon from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { useNavigate } from "react-router-dom";
+
+/* Icons */
+import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import ContactSupport from "@mui/icons-material/ContactSupport";
 import TipsAndUpdates from "@mui/icons-material/TipsAndUpdates";
 import SchoolIcon from '@mui/icons-material/School';
 import BadgeIcon from '@mui/icons-material/Badge';
+
+/* Local Imports */
 import "../../Styles/Components.css";
 import Pages from "../../Data/Pages.json";
+
+/* 
+Steps to add a new page...
+1) Add an entry into Data/Pages.json
+2) Add import for the icon
+3) Add an entry into the iconMap
+4) Add an entry into the useEffect within the Navbar Component
+*/
 
 const iconStyles = {
   fontSize: {
@@ -28,6 +41,15 @@ const iconStyles = {
     lg: "3.75rem",
   },
 };
+
+const textStyles = {
+  fontSize: {
+    xs: "2.7rem",
+    sm: "2.8rem",
+    md: "2.9rem",
+    lg: "3rem"
+  }
+}
 
 const NavList = ({ drawerHandler, drawerState }) => {
   const iconMap = {
@@ -53,7 +75,7 @@ const NavList = ({ drawerHandler, drawerState }) => {
 
         <ListItemText
           primary={
-            <Typography variant="body1" sx={iconStyles} children={name} />
+            <Typography variant="body1" sx={textStyles} children={name} />
           }
         />
       </ListItemButton>
@@ -81,10 +103,10 @@ const NavDrawer = ({ drawerState, drawerHandler }) => {
         "& .MuiDrawer-paper": {
           boxSizing: "border-box",
           width: {
-            xs: "15rem",
-            sm: "20rem",
-            md: "25rem",
-            lg: "30rem",
+            xs: "20rem",
+            sm: "25rem",
+            md: "30rem",
+            lg: "35rem",
           },
         },
       }}
@@ -112,16 +134,19 @@ export const NavBar = ({ }) => {
         setTitle("Home");
         break;
       case "/Education":
-        setTitle("Education");
+        setTitle("My Education & Skills");
         break;
       case "/Experience":
-        setTitle("Experience");
+        setTitle("My Experience");
         break;
       case "/Contact":
         setTitle("Contact Me");
         break;
       case "/Projects":
         setTitle("My Projects");
+        break;
+      case "/Skills":
+        setTitle("My Skills");
         break;
       default:
         setTitle("Welcome!");

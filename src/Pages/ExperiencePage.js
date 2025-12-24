@@ -1,72 +1,21 @@
 import {
   Card,
-  CardActions,
   CardContent,
-  Button,
   Typography,
   Stack,
-  Divider,
-  Link,
   List,
   ListItem,
   ListItemText,
   Box,
+  Divider,
 } from "@mui/material";
-
-import { React, useEffect, useState } from "react";
-
-import { maxWidth, padding, styled, width } from "@mui/system";
+import { useEffect, useState } from "react";
+import { styled } from "@mui/system";
 
 import Experience from "../Data/Experience.json";
-const dividerStyles = {
-  mb: 1.25,
-};
-const CardStyles = {
-  marginTop: {
-    xs: 4,
-    sm: 6,
-    md: 8,
-    lg: 10,
-  },
-  marginLeft: {
-    xs: 1.75,
-    sm: 2,
-    md: 2.25,
-    lg: 2.5,
-  },
-  marginRight: {
-    xs: 1.75,
-    sm: 2,
-    md: 2.25,
-    lg: 2.5,
-  },
-  paddingLeft: {
-    xs: 1.75,
-    sm: 2,
-    md: 2.25,
-    lg: 2.5,
-  },
-  paddingRight: {
-    xs: 1.75,
-    sm: 2,
-    md: 2.25,
-    lg: 2.5,
-  },
-  width: {
-    xs: "80%",
-    sm: "85%",
-    md: "90%",
-    lg: "95%",
-  },
-};
-const iconStyles = {
-  fontSize: {
-    xs: "3.85rem",
-    sm: "3.9rem",
-    md: "3.95rem",
-    lg: "4rem",
-  },
-};
+import "../Styles/Components.css";
+import { DividerStyles, ExperienceCardStyles } from "../Styles/ComponentStyles.js"
+
 const formatExperiences = (data) =>
   Object.values(data).map((entry) => ({
     company: entry.Company,
@@ -120,14 +69,13 @@ const ExperienceCard = ({}) => {
             </ListItem>
           ))}
         </DescriptionList>
+        <Divider sx={DividerStyles}/>
       </Box>
     );
   };
   return (
-    <Card raised sx={CardStyles}>
+    <Card raised sx={ExperienceCardStyles}>
       <CardContent>
-        <Typography children={"Experience"} fontSize={"48px"} align="center" />
-        <Divider sx={dividerStyles} />
         {experiences.map((experience) => (
           <ExperienceEntry
             company={experience.company}
