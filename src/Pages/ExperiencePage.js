@@ -14,7 +14,8 @@ import { styled } from "@mui/system";
 
 import Experience from "../Data/Experience.json";
 import "../Styles/Components.css";
-import { DividerStyles, ExperienceCardStyles } from "../Styles/ComponentStyles.js"
+import { DividerStyles } from "../Styles/ComponentStyles.js"
+import { ExperienceCardStyles, JobTitleStyles, JobLocationStyles, JobDescriptionStyles, JobListStyles, JobTimelineStyles } from "../Styles/JobStyles.js"
 
 const formatExperiences = (data) =>
   Object.values(data).map((entry) => ({
@@ -27,7 +28,7 @@ const formatExperiences = (data) =>
     })),
   }));
 
-const ExperienceCard = ({}) => {
+const ExperienceCard = ({ }) => {
   const DescriptionList = styled(List)({
     listStyleType: "disc", // Sets the bullet style
     paddingLeft: "20px", // Adds some left padding for the bullets
@@ -47,29 +48,29 @@ const ExperienceCard = ({}) => {
   const ExperienceEntry = ({ company, position, timeframe, description }) => {
     return (
       <Box>
-        <Stack direction={"row"} sx={{ width: 1 }}>
+        <Stack direction={"row"} display={'flex'}>
           <Typography
             children={position}
-            align="left"
-            width={1}
-            fontSize={"28px"}
+            sx={JobTitleStyles}
+
           />
           <Typography
             children={timeframe}
-            align="right"
-            width={1}
-            fontSize={"20px"}
+            sx={JobTimelineStyles}
           />
         </Stack>
-        <Typography children={company} align="left" fontSize={"20px"} />
-        <DescriptionList disablePadding>
+        <Typography
+          children={company}
+          sx={JobLocationStyles}
+        />
+        <DescriptionList disablePadding sx={JobDescriptionStyles}>
           {description.map((desc) => (
-            <ListItem key={desc.id} disablePadding>
-              <ListItemText primary={desc.info} />
+            <ListItem key={desc.id} disablePadding sx={JobListStyles}>
+              <ListItemText primary={desc.info} sx={JobDescriptionStyles} />
             </ListItem>
           ))}
         </DescriptionList>
-        <Divider sx={DividerStyles}/>
+        <Divider sx={DividerStyles} />
       </Box>
     );
   };
@@ -89,7 +90,7 @@ const ExperienceCard = ({}) => {
   );
 };
 
-const ExperiencePage = ({}) => {
+const ExperiencePage = ({ }) => {
   return (
     <Box
       sx={{
@@ -98,7 +99,7 @@ const ExperiencePage = ({}) => {
         width: "100%",
       }}
     >
-      <Stack direction={'row'}>
+      <Stack>
         <ExperienceCard />
       </Stack>
     </Box>

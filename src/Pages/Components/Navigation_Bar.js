@@ -154,22 +154,15 @@ export const NavBar = ({ }) => {
   });
 
   return (
-    <Box position="fixed" sx={{}}>
+    <Box sx={{height:1}}>
       <AppBar>
         <Toolbar
           sx={{
             position: "static",
-            height: 1,
             width: 1,
             backgroundColor: "#f26852",
             display: "flex",
-            alignItems: "center",
-            minHeight: {
-              xs: "17rem",
-              sm: "13rem",
-              md: "9rem",
-              lg: "5rem",
-            },
+            alignItems: "center"
           }}
         >
           <Box

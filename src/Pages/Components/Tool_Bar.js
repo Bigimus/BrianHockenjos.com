@@ -27,12 +27,7 @@ const ToolBar = () => {
         sx={{
           justifyContent: "center",
           backgroundColor: "#f26852",
-          minHeight: {
-              xs: "17rem",
-              sm: "13rem",
-              md: "9rem",
-              lg: "5rem",
-          },
+          height: 1
         }}
       >
         <Tooltip title="Visit Instagram">
