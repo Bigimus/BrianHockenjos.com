@@ -17,7 +17,7 @@ import { React, useEffect, useState } from "react";
 
 import { maxWidth, padding, styled, width } from "@mui/system";
 
-import Skills from "../../Data/Skills.json";
+import Skills from "../Data/Skills.json";
 const dividerStyles = {
   mb: 1.25,
 };
