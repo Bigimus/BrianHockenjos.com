@@ -59,3 +59,26 @@ const projectCard_Styles = {
 };
 
 export const ProjectCardStyles = projectCard_Styles;
+
+const nameStyles = {
+  textAlign: "left",
+  width: 1,
+  fontSize: "24px"
+};
+
+export const NameStyles = nameStyles;
+
+
+const timeframeStyles = {
+  textAlign: "right",
+  width: 1,
+  fontSize: "22px"
+};
+
+export const TimeframeStyles = timeframeStyles;
+
+const descriptionStyles = {
+  fontSize: "20px"
+}
+
+export const DescriptionStyles = descriptionStyles;

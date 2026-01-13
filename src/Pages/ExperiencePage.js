@@ -12,10 +12,18 @@ import {
 import { useEffect, useState } from "react";
 import { styled } from "@mui/system";
 
-import Experience from "../Data/Experience.json";
-import "../Styles/Components.css";
+/* Local Imports */
+import { 
+  ExperienceCardStyles, 
+  JobTitleStyles, 
+  JobLocationStyles, 
+  JobDescriptionStyles, 
+  JobListStyles, 
+  JobTimelineStyles 
+} from "../Styles/JobStyles.js"
 import { DividerStyles } from "../Styles/ComponentStyles.js"
-import { ExperienceCardStyles, JobTitleStyles, JobLocationStyles, JobDescriptionStyles, JobListStyles, JobTimelineStyles } from "../Styles/JobStyles.js"
+import "../Styles/Components.css";
+import Experience from "../Data/Experience.json";
 
 const formatExperiences = (data) =>
   Object.values(data).map((entry) => ({
@@ -30,11 +38,11 @@ const formatExperiences = (data) =>
 
 const ExperienceCard = ({ }) => {
   const DescriptionList = styled(List)({
-    listStyleType: "disc", // Sets the bullet style
-    paddingLeft: "20px", // Adds some left padding for the bullets
+    listStyleType: "disc",
+    paddingLeft: "20px",
     "& .MuiListItem-root": {
-      display: "list-item", // Changes ListItem to display as list items
-      listStyleType: "inherit", // Inherit bullet style from parent
+      display: "list-item",
+      listStyleType: "inherit",
     },
   });
 
@@ -94,8 +102,8 @@ const ExperiencePage = ({ }) => {
   return (
     <Box
       sx={{
-        height: "100vh", // full screen height
-        overflowY: "auto", // scroll if needed
+        height: "100vh", 
+        overflowY: "auto",
       }}
     >
       <ExperienceCard />

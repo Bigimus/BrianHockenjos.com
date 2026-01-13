@@ -6,7 +6,6 @@ import EducationPage from './Pages/EducationPage';
 import { Routes, Route } from 'react-router-dom';
 import ProjectPage from './Pages/ProjectPage';
 import ContactPage from './Pages/ContactPage';
-import AboutPage from './Pages/AboutPage';
 import ToolBar from './Pages/Components/Tool_Bar';
 import React from 'react';
 import { Box } from '@mui/material';
@@ -20,8 +19,8 @@ function App() {
         <Route path='Projects' element={<ProjectPage />} />
         <Route path='Education' element={<EducationPage />} />
         <Route path='Experience' element={<ExperiencePage />} />
-        <Route path='About' element={<AboutPage />} />
         <Route path='Contact' element={<ContactPage />} />
+        <Route path="Home" element={<HomePage />} />
       </Routes>
       <ToolBar />
     </Box>

@@ -18,8 +18,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import ContactSupport from "@mui/icons-material/ContactSupport";
 import TipsAndUpdates from "@mui/icons-material/TipsAndUpdates";
-import SchoolIcon from '@mui/icons-material/School';
-import BadgeIcon from '@mui/icons-material/Badge';
+import SchoolIcon from "@mui/icons-material/School";
+import BadgeIcon from "@mui/icons-material/Badge";
 
 /* Local Imports */
 import "../../Styles/Components.css";
@@ -47,9 +47,9 @@ const textStyles = {
     xs: "2.7rem",
     sm: "2.8rem",
     md: "2.9rem",
-    lg: "3rem"
-  }
-}
+    lg: "3rem",
+  },
+};
 
 const NavList = ({ drawerHandler, drawerState }) => {
   const iconMap = {
@@ -57,7 +57,7 @@ const NavList = ({ drawerHandler, drawerState }) => {
     SchoolIcon: SchoolIcon,
     BadgeIcon: BadgeIcon,
     TipsAndUpdates: TipsAndUpdates,
-    ContactSupport: ContactSupport
+    ContactSupport: ContactSupport,
   };
   const nav = useNavigate();
 
@@ -79,8 +79,8 @@ const NavList = ({ drawerHandler, drawerState }) => {
           }
         />
       </ListItemButton>
-    )
-  }
+    );
+  };
 
   const PageList = ({ data }) => {
     return (
@@ -89,11 +89,9 @@ const NavList = ({ drawerHandler, drawerState }) => {
           <PageEntry key={name} name={name} icon={icon.icon} />
         ))}
       </List>
-    )
-  }
-  return (
-    <PageList data={Pages} />
-  );
+    );
+  };
+  return <PageList data={Pages} />;
 };
 
 const NavDrawer = ({ drawerState, drawerHandler }) => {
@@ -123,16 +121,13 @@ const NavDrawer = ({ drawerState, drawerHandler }) => {
   );
 };
 
-export const NavBar = ({ }) => {
+export const NavBar = ({}) => {
   var [drawerState, toggleDrawer] = useState(false);
   const location = useLocation();
   const [title, setTitle] = useState("");
 
   useEffect(() => {
     switch (location.pathname) {
-      case "/Home":
-        setTitle("Home");
-        break;
       case "/Education":
         setTitle("My Education & Skills");
         break;
@@ -154,15 +149,21 @@ export const NavBar = ({ }) => {
   });
 
   return (
-    <Box sx={{height:1/8}}>
+    <Box>
       <AppBar>
         <Toolbar
           sx={{
             position: "static",
             width: 1,
+            height: {
+              xs: "3rem",
+              sm: "4rem",
+              md: "4.5rem",
+              lg: "5rem",
+            },
             backgroundColor: "#f26852",
             display: "flex",
-            alignItems: "center"
+            alignItems: "center",
           }}
         >
           <Box

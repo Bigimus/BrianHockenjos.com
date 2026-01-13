@@ -16,11 +16,19 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import Projects from "../Data/Projects.json";
 import { Height } from "@mui/icons-material";
-import { ToolbarStyles, ProjectCardStyles } from "../Styles/ProjectStyles";
+
+/* Local Imports */ 
+import { 
+  ToolbarStyles, 
+  ProjectCardStyles,
+  NameStyles,
+  TimeframeStyles,
+  DescriptionStyles
+} from "../Styles/ProjectStyles";
 const formateProjects = (data) =>
   Object.values(data).map((entry) => ({
     name: entry.Name,
-    timeframe: entry.Timefram,
+    timeframe: entry.Timeframe,
     link: entry.Link,
     description: entry.Description,
   }));
@@ -49,18 +57,14 @@ const ProjectPage = () => {
             <Stack direction={"row"}>
               <Typography
                 children={name}
-                align="left"
-                width={1}
-                sx={{ fontSize: "22px" }}
+                sx={NameStyles}
               />
               <Typography
                 children={timeframe}
-                align="right"
-                width={1}
-                sx={{ fontSize: "18px" }}
+                sx={TimeframeStyles}
               />
             </Stack>
-            <Typography children={description} sx={{ fontSize: "18px" }} />
+            <Typography children={description} sx={DescriptionStyles} />
           </CardContent>
           <CardActions sx={{ justifyContent: "center" }}>
             <Stack direction={"row"}>
@@ -86,8 +90,8 @@ const ProjectPage = () => {
   return (
     <Box
       sx={{
-        height: "100vh", // full screen height
-        overflowY: "auto", // scroll if needed
+        height: "100vh",
+        overflowY: "auto",
         width: "100%",
       }}
     >
