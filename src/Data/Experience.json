@@ -7,7 +7,8 @@
             "Preformed general maintenace tasks throughout the venue, including but not limited to: plumbing, electrical, carpentry",
             "Coordinated with vendors to ensure the proper functionality of equipment, be it through facilitating prevenative maintenace contracts, or having the vendor come down for service calls.",
             "Maintained all pertinent permits & liscenses."
-        ]
+        ],
+        "isLast": false
     },
     "2": {
         "Company": "Northwell @ Jones Beach Theater - Live Nation",
@@ -17,7 +18,8 @@
             "Managed and mentored a team of 65+ housekeeping staff",
             "Recruited, trained, and scheduled employees to ensure adequate coverage and productivity.",
             "Fostered a culture of teamwork, accountability, and continuous improvement."
-        ]
+        ],
+        "isLast": false
     },
     "3": {
         "Company": "Northwell @ Jones Beach Theater - Live Nation",
@@ -27,6 +29,7 @@
             "Ensured the functionality of equipment around the venue.",
             "Moved / Setup equipment in order to be ready for the concert.",
             "Small miscellaneous maintenace projects throughout the venue (repairing doors, changing lightbulbs, replacing ceiling tiles, etc...)"
-        ]
+        ],
+        "isLast": true
     }
 }

@@ -12,6 +12,7 @@ import {
   LocationStyles,
   TimeframeStyles,
   DegreeStyles,
+  ScreenStyles
 } from "../Styles/EducationStyles";
 
 const formatDegrees = (data) =>
@@ -70,13 +71,7 @@ const EducationCard = ({}) => {
 
 const EducationPage = ({}) => {
   return (
-    <Box
-      sx={{
-        height: "100vh", 
-        overflowY: "auto",
-        width: "100%",
-      }}
-    >
+    <Box sx={ScreenStyles}>
       <Stack>
         <EducationCard />
       </Stack>

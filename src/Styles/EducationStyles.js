@@ -16,12 +16,6 @@ const iconStyles = {
 export const Iconstyles = iconStyles;
 
 const cardStyles = {
-  marginTop: {
-    xs: 4,
-    sm: 6,
-    md: 8,
-    lg: 10,
-  },
   marginLeft: {
     xs: 1.75,
     sm: 2,
@@ -88,3 +82,27 @@ const degreeStyles = {
 };
 
 export const DegreeStyles = degreeStyles;
+
+export const ScreenStyles = {
+    minheight: {
+        xs: "calc(100vh - 7rem)",
+        sm: "calc(100vh - 8rem)",
+        md: "calc(100vh - 9rem)",
+        lg: "calc(100vh - 10rem)",
+    },
+    marginTop: {
+        xs: "3.5rem",
+        sm: "4rem",
+        md: "4.5rem",
+    },
+    marginBottom: {
+        xs: "3.5rem",
+        sm: "4rem",
+        md: "4.5rem",
+        lg: "5rem",
+    },
+    display: "flex",
+    flexDirection: "column",
+    overflowY: "auto",
+    width: "100%",
+};

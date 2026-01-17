@@ -19,11 +19,18 @@ import {
   JobLocationStyles, 
   JobDescriptionStyles, 
   JobListStyles, 
-  JobTimelineStyles 
+  JobTimelineStyles,
 } from "../Styles/JobStyles.js"
 import { DividerStyles } from "../Styles/ComponentStyles.js"
 import "../Styles/Components.css";
 import Experience from "../Data/Experience.json";
+
+/* 
+  To do...
+  - Reformat entire layout. Each individual job-experience will be it's own card. 
+  - Somehow implement adding information regarding the venue & regarding Live Nation and what we do.. 
+    Be it on a pop-up, or attempting to flip the card and put the venue / company information on the "back" of the experience card.
+*/
 
 const formatExperiences = (data) =>
   Object.values(data).map((entry) => ({
@@ -34,6 +41,7 @@ const formatExperiences = (data) =>
       id: idx,
       info: desc,
     })),
+    isLast: entry.isLast
   }));
 
 const ExperienceCard = ({ }) => {
@@ -53,7 +61,7 @@ const ExperienceCard = ({ }) => {
     setExperience(formatted);
   }, []);
 
-  const ExperienceEntry = ({ company, position, timeframe, description }) => {
+  const ExperienceEntry = ({ company, position, timeframe, description, isLast }) => {
     return (
       <Box>
         <Stack direction={"row"} display={'flex'}>
@@ -78,7 +86,7 @@ const ExperienceCard = ({ }) => {
             </ListItem>
           ))}
         </DescriptionList>
-        <Divider sx={DividerStyles} />
+        {!isLast && <Divider sx={DividerStyles} />}
       </Box>
     );
   };
@@ -91,6 +99,7 @@ const ExperienceCard = ({ }) => {
             position={experience.position}
             timeframe={experience.timeframe}
             description={experience.descriptions}
+            isLast={experience.isLast}
           />
         ))}
       </CardContent>

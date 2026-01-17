@@ -18,12 +18,12 @@ import Projects from "../Data/Projects.json";
 import { Height } from "@mui/icons-material";
 
 /* Local Imports */ 
-import { 
-  ToolbarStyles, 
+import {  
   ProjectCardStyles,
   NameStyles,
   TimeframeStyles,
-  DescriptionStyles
+  DescriptionStyles,
+  ScreenStyles
 } from "../Styles/ProjectStyles";
 const formateProjects = (data) =>
   Object.values(data).map((entry) => ({
@@ -88,16 +88,9 @@ const ProjectPage = () => {
   };
 
   return (
-    <Box
-      sx={{
-        height: "100vh",
-        overflowY: "auto",
-        width: "100%",
-      }}
-    >
+    <Box sx={ScreenStyles}>
       <Stack direction="row"width={1}>
         <Stack width={'50%'}>
-          <Box sx={ToolbarStyles} width={1} />
           {odd_projects.map((project) => (
             <ProjectEntry
               name={project.name}
@@ -107,10 +100,8 @@ const ProjectPage = () => {
               path={project.path}
             />
           ))}
-          <Box sx={ToolbarStyles} width={1} />
         </Stack>
         <Stack width={'50%'}>
-          <Box sx={ToolbarStyles} width={1} />
           {even_projects.map((project) => (
             <ProjectEntry
               name={project.name}
@@ -120,7 +111,6 @@ const ProjectPage = () => {
               path={project.path}
             />
           ))}
-          <Box sx={ToolbarStyles} width={1} />
         </Stack>
       </Stack>
       <InventoryTrackerPopup state={isOpen} stateHandler={setIsOpen} />
